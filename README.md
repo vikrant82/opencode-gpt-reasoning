@@ -1,19 +1,97 @@
-# Copilot GPT reasoning replay
+# opencode-gpt-reasoning
 
-A removable OpenCode plugin selecting a pinned Copilot Responses adapter for
-exactly `github-copilot/gpt-6.1-sol` and `github-copilot/gpt-6-luna`, in primary
-and subagent sessions. No OpenCode binary rebuild or alternative login is needed.
-DCP integration is not included. No performance improvement is claimed.
+Preserve GPT reasoning across tool calls and conversation turns in OpenCode's
+GitHub Copilot integration—without rebuilding OpenCode or enabling server-side
+response storage.
 
-**Pre-release verification.** The provisional local name
-is `opencode-gpt-reasoning`, version `0.0.0`, and the package remains private.
-The human intends a later npm release; final name, version, channel and release
-permission are unresolved. This is not a publication-ready claim.
+## Why this exists
 
-## Installation shape
+A reasoning model can return an **encrypted reasoning item** alongside its answer
+or tool call. Passing that item back gives the model access to its previous
+reasoning state, not just the visible answer and tool results. This is different
+from displaying a readable reasoning summary or counting reasoning-output tokens.
 
-Build the checkout with `npm ci` and `bun run build`. For an explicitly authorized
-local installation, add the built root plugin to your OpenCode config and restart:
+For multi-step coding tasks, preserving this state may improve reasoning
+continuity, token efficiency, and model performance. OpenAI's
+[reasoning guide](https://developers.openai.com/api/docs/guides/reasoning)
+recommends returning reasoning items during function-calling workflows.
+With `store:false`, encrypted items can be sent inline: server-side item storage
+is not required for replay.
+
+The inspected OpenCode Copilot adapter could store encrypted reasoning locally
+but fail to send it back. In its stateless request path, OpenCode strips reasoning
+item IDs, while the converter requires an ID before emitting the encrypted item.
+We also found reasoning-effort classification gaps for the supported GPT models
+and loss of encrypted content when a stream's completion event does not repeat
+content supplied at item start.
+
+This plugin addresses those compatibility gaps. Its goal is to bring OpenCode's
+Copilot reasoning-history handling in line with harnesses such as
+[Pi](https://github.com/earendil-works/pi), which preserves reasoning items when
+converting retained same-model history into Responses input.
+
+**Replay is verified; performance improvement is not benchmarked.** Preserving
+reasoning enables the intended continuation mechanism, but does not guarantee
+better answers on every task or identical performance to another harness.
+
+## What the plugin fixes
+
+It uses a pinned copy of OpenCode's actual Copilot adapter, preserving its
+Copilot-specific streaming behavior and existing authentication. Three narrow
+patches:
+
+1. **Stateless replay:** emit encrypted reasoning even when its item ID is absent.
+2. **Reasoning effort:** recognize the two supported model IDs and pass through
+   the selected effort instead of silently omitting it.
+3. **Stream persistence:** retain encrypted content captured at item start when
+   the completion event omits it; prefer completion content when supplied.
+
+The plugin overrides only these models, in both primary and subagent sessions:
+
+- `github-copilot/gpt-6.1-sol`
+- `github-copilot/gpt-6-luna`
+
+Other models and providers are left untouched. No additional login is needed.
+
+## Upstream context
+
+These references explain related upstream work; their scope and status matter:
+
+- [OpenCode issue #25065](https://github.com/anomalyco/opencode/issues/25065):
+  reports later-turn encrypted-reasoning failures with `store:false`.
+- [OpenCode PR #38247](https://github.com/anomalyco/opencode/pull/38247):
+  proposes stateless replay changes, including the Copilot converter;
+  **closed without merging**.
+- [OpenCode PR #34686](https://github.com/anomalyco/opencode/pull/34686):
+  merged Copilot metadata/ID handling changes, but does not by itself establish
+  encrypted replay without an ID.
+- [AI SDK PR #12869](https://github.com/vercel/ai/pull/12869): merged support for
+  encrypted reasoning without an item ID in its OpenAI converter. That is not
+  the separate Copilot converter bundled by OpenCode.
+- [Pi's Responses history conversion](https://github.com/earendil-works/pi/blob/28dcce2ba45ce4a9efeb0f5b686f0be830fd89b9/packages/ai/src/api/openai-responses-shared.ts#L145):
+  a reference implementation for retaining reasoning in supplied history.
+
+This is a version-pinned workaround, not a claim that every current or future
+OpenCode/provider combination has these defects. See
+[compatibility](docs/compatibility.md) for the tested versions and evidence.
+
+## Install from source
+
+The package is not yet published to npm. Its intended npm name is
+`@vikrant82/opencode-gpt-reasoning`; the checkout currently remains private at
+version `0.0.0`.
+
+Install dependencies and build using Node/npm and Bun:
+
+```sh
+git clone https://github.com/vikrant82/opencode-gpt-reasoning.git
+cd opencode-gpt-reasoning
+npm ci
+bun run build
+```
+
+Add the built plugin to your OpenCode configuration, preserving existing entries,
+then fully quit and restart OpenCode:
 
 ```json
 {
@@ -24,16 +102,8 @@ local installation, add the built root plugin to your OpenCode config and restar
 
 The checkout's production dependencies must remain installed. Use the root
 `plugin.js`, not `sdk.js`; it resolves the sibling SDK relative to its installation.
-These instructions do not authorize editing a normal profile or changing auth.
-
-Future npm installation would use the root package entry, for example:
-
-```json
-{ "plugin": ["opencode-gpt-reasoning"], "model": "github-copilot/gpt-6.1-sol" }
-```
-
-That name is provisional, not a currently published installation promise. Replace
-it with the exact name/version selected for a separately authorized release.
+There are no plugin-specific configuration options. Continue selecting models
+and reasoning effort through OpenCode's normal model, agent, and variant settings.
 
 ## Effort and storage
 
@@ -81,9 +151,9 @@ response storage mode, not a promise of zero retention under all provider policy
 ## Removal and verification
 
 Remove this plugin entry from config and restart OpenCode; retain existing auth.
-No auth deletion, binary rollback or DCP changes are required.
+No authentication deletion or binary rollback is required.
 
 See [compatibility](docs/compatibility.md) for bounded Sol/Luna task-and-replay
 evidence and its limits, and [maintenance](docs/maintenance.md) for offline checks, provenance,
-upgrade procedure and separately approved manual smoke usage. Ordinary tests,
+upgrade procedure and opt-in live smoke usage. Ordinary tests,
 builds and installs do not run live inference.
