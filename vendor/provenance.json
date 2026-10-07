@@ -1,0 +1,189 @@
+{
+  "repository": "https://github.com/anomalyco/opencode",
+  "tag": "v1.18.34",
+  "tree": "aec0b9a6d8898f68f923aaf08b7306d931fd9d76",
+  "files": [
+    {
+      "source": "packages/core/src/github-copilot/README.md",
+      "local": "vendor/copilot/README.md",
+      "blob": "d1051a4da0411e6f4ae288144154e755320b84cd",
+      "pristineSha256": "62969b3ac55adab013546f90667ff48924880bfe07cd2504de0d40a3e6eb0aa0",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/README.md"
+    },
+    {
+      "source": "packages/core/src/github-copilot/chat/convert-to-openai-compatible-chat-messages.ts",
+      "local": "vendor/copilot/chat/convert-to-openai-compatible-chat-messages.ts",
+      "blob": "c4e15e0b4fb29901da556b2c3250b243ccb5d4cf",
+      "pristineSha256": "6b03726aa982be5bfbede5882e58ea7b65de24259971e3fe9342184ce11d7878",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/chat/convert-to-openai-compatible-chat-messages.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/chat/get-response-metadata.ts",
+      "local": "vendor/copilot/chat/get-response-metadata.ts",
+      "blob": "708fd968e3a53ba9a2d01faa57deb599bc09e255",
+      "pristineSha256": "8f75c47c2e6c8bb1c44f0c3db19e8c54073b70780c520522e36061db549df149",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/chat/get-response-metadata.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/chat/map-openai-compatible-finish-reason.ts",
+      "local": "vendor/copilot/chat/map-openai-compatible-finish-reason.ts",
+      "blob": "7186b62af90acac326c33a118ecd44e45336ec96",
+      "pristineSha256": "a2715febd39af17dc7ddca460c5ae884bc23d4a3696fc35975a0d692cd94ae15",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/chat/map-openai-compatible-finish-reason.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/chat/openai-compatible-api-types.ts",
+      "local": "vendor/copilot/chat/openai-compatible-api-types.ts",
+      "blob": "c127b05b17e773b02882f34ee7e4c3107231effc",
+      "pristineSha256": "25016a78d64c3f7e74934a773bef653efbe8da5dad52acb862cf3635907e2509",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/chat/openai-compatible-api-types.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/chat/openai-compatible-chat-language-model.ts",
+      "local": "vendor/copilot/chat/openai-compatible-chat-language-model.ts",
+      "blob": "280970c41b4f2dace7a49db86735da20144b1f92",
+      "pristineSha256": "375c0bca4fb26709b007300219bb9ba9701deeede09caa3458e029915ac7d7ea",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/chat/openai-compatible-chat-language-model.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/chat/openai-compatible-chat-options.ts",
+      "local": "vendor/copilot/chat/openai-compatible-chat-options.ts",
+      "blob": "ec5d53fbf9aa4f3a360039dbbd5c2aa2a38e3244",
+      "pristineSha256": "9ed4812f35a8e8b93fc863e8b630258713bb64f1ab17ba2e032d937ab45a2db7",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/chat/openai-compatible-chat-options.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/chat/openai-compatible-metadata-extractor.ts",
+      "local": "vendor/copilot/chat/openai-compatible-metadata-extractor.ts",
+      "blob": "40335f87f61d8b5b16f74207ec31b51a7d2cf412",
+      "pristineSha256": "a635eef1a888a56367a8b30e5532738a51c09998004bee0889964457d2a467fe",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/chat/openai-compatible-metadata-extractor.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/chat/openai-compatible-prepare-tools.ts",
+      "local": "vendor/copilot/chat/openai-compatible-prepare-tools.ts",
+      "blob": "ac907f52542666905181160d17f6096b1b751b62",
+      "pristineSha256": "dd61ebd4aeb11b6b84fd132039e555e65af8fea4dfaf76420797cf32ecce29be",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/chat/openai-compatible-prepare-tools.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/copilot-provider.ts",
+      "local": "vendor/copilot/copilot-provider.ts",
+      "blob": "b9cbb6c7ccb222d9fd158776e757abd1ea60626a",
+      "pristineSha256": "b4760a6be079c20ecb220abe7e7f3e22277fd3f258f4399086fcfb436fa1cbc9",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/copilot-provider.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/openai-compatible-error.ts",
+      "local": "vendor/copilot/openai-compatible-error.ts",
+      "blob": "054c694dd3050a13918763e2caea9a2e6727f0aa",
+      "pristineSha256": "fca4fb8937468faa3279d0f79050fb627a82c32b89eaa67ac624fb5bcb917079",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/openai-compatible-error.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/responses/convert-to-openai-responses-input.ts",
+      "local": "vendor/copilot/responses/convert-to-openai-responses-input.ts",
+      "blob": "1e4f86d93355d637048cf16dd0ff5dc10c39ed7e",
+      "pristineSha256": "04b5fd45f500136c18e9c5192c0e5ef9e1664c2ead1ffe41b91f6301010f15c2",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/responses/convert-to-openai-responses-input.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/responses/map-openai-responses-finish-reason.ts",
+      "local": "vendor/copilot/responses/map-openai-responses-finish-reason.ts",
+      "blob": "4f443b511bab9f9d9dbc8f8c9a2a6b3c4c749824",
+      "pristineSha256": "8b9f1db3207d96208640e06ce9bf81fb9373661f32c64026e08d98786837502e",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/responses/map-openai-responses-finish-reason.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/responses/openai-config.ts",
+      "local": "vendor/copilot/responses/openai-config.ts",
+      "blob": "2241dbb52491a3418bcf82ee1aa510fa9702a5e9",
+      "pristineSha256": "506ac5c4aad1bee0f6a1c2899fced72608b5564658bfcb01899012c51de23468",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/responses/openai-config.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/responses/openai-error.ts",
+      "local": "vendor/copilot/responses/openai-error.ts",
+      "blob": "e78824d36416d6969264d0363f7b27e69c3a5248",
+      "pristineSha256": "a2f66636d4e6ad066910c560337df0b0edb13158b09d48cdba537c44389a6a8b",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/responses/openai-error.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/responses/openai-responses-api-types.ts",
+      "local": "vendor/copilot/responses/openai-responses-api-types.ts",
+      "blob": "dfdd066750a8617400fafe0a0d519532a43e0559",
+      "pristineSha256": "805d82815acb8df0404348f652f80cb3cb71a3100b22fdbf9f5948863d7e7bbb",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/responses/openai-responses-api-types.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/responses/openai-responses-language-model.ts",
+      "local": "vendor/copilot/responses/openai-responses-language-model.ts",
+      "blob": "8df1dcedadb3bcc4878cb538f5324d34d8113756",
+      "pristineSha256": "ba074469423956aa690e084485c49f266f479195ae050b97ea6b54b37b2bfb13",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/responses/openai-responses-language-model.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/responses/openai-responses-prepare-tools.ts",
+      "local": "vendor/copilot/responses/openai-responses-prepare-tools.ts",
+      "blob": "8b2eb01673a48e05c72ee72d6681bb3aa127729d",
+      "pristineSha256": "fac2a2bd30c772408b5b6bef33fdb22a3268c994504ef104e49af1e9e5e18473",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/responses/openai-responses-prepare-tools.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/responses/openai-responses-settings.ts",
+      "local": "vendor/copilot/responses/openai-responses-settings.ts",
+      "blob": "76c97346fa24dfbb67c427d84444cbd839175b08",
+      "pristineSha256": "aded196f697fad49dc0e892cee615b17cd7277f8a120dcacd85e3ae37230eabd",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/responses/openai-responses-settings.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/responses/tool/code-interpreter.ts",
+      "local": "vendor/copilot/responses/tool/code-interpreter.ts",
+      "blob": "909694ec7d69435293eb8ec1431f74453f19d4e3",
+      "pristineSha256": "749ec243931b61215a7228d02a6814f2dab985aa3eb4c555b63d77420eaf5927",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/responses/tool/code-interpreter.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/responses/tool/file-search.ts",
+      "local": "vendor/copilot/responses/tool/file-search.ts",
+      "blob": "12a490e19dd608bc2be86e51085585ca60d4804a",
+      "pristineSha256": "3bc9cd09cb5eaf62163a6098e6443b185ddbc05b8d6c7d7994aacbf2af8d8278",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/responses/tool/file-search.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/responses/tool/image-generation.ts",
+      "local": "vendor/copilot/responses/tool/image-generation.ts",
+      "blob": "b67bb76f9ce4a43c08dcfc41eb52feb7e962fc5c",
+      "pristineSha256": "283d86bbc24a0c6b9f3b1cc241c2a4a065a55c8ce79f0ad74de632dbc5182507",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/responses/tool/image-generation.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/responses/tool/local-shell.ts",
+      "local": "vendor/copilot/responses/tool/local-shell.ts",
+      "blob": "45230d5ce55d8cf66bd1ab3d8e71a6f8d2364c7c",
+      "pristineSha256": "b36380334c0f916b07dac6bfe0236ec9058ac95eca093118c161141737c52bc6",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/responses/tool/local-shell.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/responses/tool/web-search-preview.ts",
+      "local": "vendor/copilot/responses/tool/web-search-preview.ts",
+      "blob": "3d9a308d8ac02f774d8f340ce2acaec5e5863777",
+      "pristineSha256": "57166ce5a743a58e3f9706ab3e04b7436fface8063995d875dcb372094ba2f8f",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/responses/tool/web-search-preview.ts"
+    },
+    {
+      "source": "packages/core/src/github-copilot/responses/tool/web-search.ts",
+      "local": "vendor/copilot/responses/tool/web-search.ts",
+      "blob": "e380bb13b62ac109d1054e94188bb4204b91fa9a",
+      "pristineSha256": "b0158e1651811a0e483b19054052d07ca2092bb30a9d98ccc1fc7284bbd3b41d",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/core/src/github-copilot/responses/tool/web-search.ts"
+    },
+    {
+      "source": "LICENSE",
+      "local": "LICENSE",
+      "blob": "6439474beed8e0271df9862eff97ffd70ec2464c",
+      "pristineSha256": "625f0f619133f89bbbb2abe37369613dfa1885eba1e50d02170deb62bb42cb6b",
+      "origin": "https://raw.githubusercontent.com/anomalyco/opencode/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/LICENSE"
+    }
+  ]
+}

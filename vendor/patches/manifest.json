@@ -1,0 +1,29 @@
+{
+  "format": 1,
+  "patches": [
+    {
+      "class": "stateless-no-id-encrypted-replay",
+      "file": "vendor/copilot/responses/openai-responses-api-types.ts",
+      "before": "export type OpenAIResponsesReasoning = {\n  type: \"reasoning\"\n  id: string",
+      "after": "export type OpenAIResponsesReasoning = {\n  type: \"reasoning\"\n  id?: string"
+    },
+    {
+      "class": "stateless-no-id-encrypted-replay",
+      "file": "vendor/copilot/responses/convert-to-openai-responses-input.ts",
+      "before": "              } else {\n                warnings.push({\n                  type: \"other\",\n                  message: `Non-OpenAI reasoning parts are not supported. Skipping reasoning part: ${JSON.stringify(part)}.`,",
+      "after": "              } else if (store === false && providerOptions?.reasoningEncryptedContent != null) {\n                input.push({\n                  type: \"reasoning\",\n                  encrypted_content: providerOptions.reasoningEncryptedContent,\n                  summary: part.text.length > 0 ? [{ type: \"summary_text\", text: part.text }] : [],\n                })\n              } else {\n                warnings.push({\n                  type: \"other\",\n                  message: `Non-OpenAI reasoning parts are not supported. Skipping reasoning part: ${JSON.stringify(part)}.`,"
+    },
+    {
+      "class": "exact-target-reasoning-classification",
+      "file": "vendor/copilot/responses/openai-responses-language-model.ts",
+      "before": "    modelId.startsWith(\"o\") ||\n    modelId.startsWith(\"gpt-5\") ||",
+      "after": "    modelId.startsWith(\"o\") ||\n    modelId === \"gpt-6.1-sol\" ||\n    modelId === \"gpt-6-luna\" ||\n    modelId.startsWith(\"gpt-5\") ||"
+    },
+    {
+      "class": "same-index-encrypted-reasoning-retention",
+      "file": "vendor/copilot/responses/openai-responses-language-model.ts",
+      "before": "                          itemId: activeReasoningPart.canonicalId,\n                          reasoningEncryptedContent: value.item.encrypted_content ?? null,",
+      "after": "                          itemId: activeReasoningPart.canonicalId,\n                          reasoningEncryptedContent: value.item.encrypted_content ?? activeReasoningPart.encryptedContent ?? null,"
+    }
+  ]
+}

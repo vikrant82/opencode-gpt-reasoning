@@ -1,0 +1,32 @@
+{
+  "name": "opencode-gpt-reasoning",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": { "types": "./dist/types/src/plugin.d.ts", "import": "./dist/plugin.js" },
+    "./sdk": { "types": "./dist/types/src/sdk.d.ts", "import": "./dist/sdk.js" }
+  },
+  "files": ["dist", "README.md", "docs/compatibility.md", "docs/maintenance.md", "LICENSE", "vendor"],
+  "scripts": {
+    "test": "bun test tests/*.test.ts",
+    "build": "bun run scripts/build.ts",
+    "typecheck": "tsc --noEmit",
+    "test:consumer": "bun test tests/consumer.test.ts",
+    "test:integration": "bun run build && node --test tests/integration/runtime.test.mjs tests/integration/subagent.test.mjs",
+    "test:smoke-controls": "node --test tests/smoke-controls.test.mjs",
+    "verify:vendor": "bun run scripts/verify-vendor.ts"
+  },
+  "dependencies": {
+    "@opencode-ai/plugin": "1.18.34",
+    "@types/json-schema": "7.0.15",
+    "@ai-sdk/provider": "3.0.16",
+    "@ai-sdk/provider-utils": "4.0.51",
+    "zod": "4.1.8"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.2",
+    "typescript": "7.0.2"
+  }
+}
